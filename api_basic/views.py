@@ -9,9 +9,15 @@ from rest_framework import viewsets
 from django.shortcuts import get_object_or_404
 from rest_framework import status
 
-class ArticleViewSet(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.CreateModelMixin, mixins.UpdateModelMixin, mixins.RetrieveModelMixin, mixins.DestroyModelMixin):
+
+class ArticleViewSet(viewsets.ModelViewSet):
+    """
+        A viewset for viewing and editing article instances.
+        """
+
     serializer_class = ArticleSerializer
     queryset = Article.objects.all()
+
  
     
 
